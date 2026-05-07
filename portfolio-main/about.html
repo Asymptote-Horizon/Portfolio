@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Omkar Deshmukh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen">
+    <div class="loader-logo">OD</div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+    <div class="loader-text">LOADING ABOUT...</div>
+  </div>
+
+  <div id="progress-bar"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">OD.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html" class="active">ABOUT</a></li>
+      <li><a href="skills.html">SKILLS</a></li>
+      <li><a href="projects.html">MY WORKS</a></li>
+      <li><a href="achievements.html">AWARDS</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span id="theme-icon">🌙</span>
+    </button>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">HOME</a>
+    <a href="about.html" class="active">ABOUT</a>
+    <a href="skills.html">SKILLS</a>
+    <a href="projects.html">MY WORKS</a>
+    <a href="achievements.html">AWARDS & ACHIEVEMENTS</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+    <div class="section">
+
+      <!-- Page Header -->
+      <div class="reveal" style="margin-bottom:3rem;">
+        <h1 class="section-title">ABOUT <span>ME</span></h1>
+        <p class="section-subtitle">Get to know the person behind the code.</p>
+      </div>
+
+      <!-- About Grid -->
+      <div class="about-grid">
+
+        <!-- ── LEFT COLUMN ── -->
+        <div class="reveal-left">
+          <div class="about-avatar-wrap">
+
+            <img src="profile.jpg" alt="Omkar Deshmukh" class="about-avatar-img" />
+
+            <div class="about-badge">🎓 BTECH IT — FIRST YEAR</div>
+            <div class="about-badge" style="margin-top:-0.5rem;">📍 MITAOE, PUNE</div>
+
+            <div style="display:flex;gap:0.7rem;flex-wrap:wrap;justify-content:center;margin-top:0.5rem;">
+              <a href="mailto:omkarmaheshdeshmukh@gmail.com" class="btn btn-outline" style="font-size:0.6rem;padding:0.5rem 1rem;">
+                📧 EMAIL
+              </a>
+              <a href="tel:7218559768" class="btn btn-primary" style="font-size:0.6rem;padding:0.5rem 1rem;">
+                📞 CALL
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <!-- ── END LEFT COLUMN ── -->
+
+        <!-- ── RIGHT COLUMN ── -->
+        <div class="about-info reveal-right">
+
+          <div class="glass-card" style="padding:1.8rem;">
+            <h3 style="font-family:var(--font-display);font-size:0.8rem;letter-spacing:0.15em;color:var(--accent-neon);margin-bottom:1rem;">// WHO AM I</h3>
+            <p class="about-text">
+              A <strong>First-Year B.Tech</strong> student with a polymath mindset, blending technical innovation with creative expression. I work on diverse projects including <strong>Anvaya</strong> (adaptive learning for specially-abled), <strong>MILES</strong> (agentic AI systems), 4D campus digital twin, library management, and Android automations. I'm equally passionate about creative pursuits—video editing, poetry, and design.
+            </p>
+            <p class="about-text" style="margin-top:1rem;">
+              My interests span creative writing, Photoshop/UI/UX design, Python programming, Android development, front-end frameworks, AI agents, and DSA fundamentals. I believe technology should solve real problems while enabling human creativity.
+            </p>
+          </div>
+
+          <div class="info-grid">
+            <div class="glass-card info-item">
+              <span class="info-label">FULL NAME</span>
+              <span class="info-value">Omkar Mahesh Deshmukh</span>
+            </div>
+            <div class="glass-card info-item">
+              <span class="info-label">DEGREE</span>
+              <span class="info-value">BTech (Information Technology)</span>
+            </div>
+            <div class="glass-card info-item">
+              <span class="info-label">COLLEGE</span>
+              <span class="info-value">MIT Academy of Engineering</span>
+            </div>
+            <div class="glass-card info-item">
+              <span class="info-label">YEAR</span>
+              <span class="info-value">First Year (FY)</span>
+            </div>
+            <div class="glass-card info-item">
+              <span class="info-label">EMAIL</span>
+              <span class="info-value" style="font-size:0.82rem;">omkarmaheshdeshmukh@gmail.com</span>
+            </div>
+            <div class="glass-card info-item">
+              <span class="info-label">PHONE</span>
+              <span class="info-value">7218559768</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="skills.html" class="btn btn-primary">🧠 VIEW SKILLS →</a>
+            <a href="achievements.html" class="btn btn-outline">🏆 MY AWARDS →</a>
+          </div>
+
+        </div>
+        <!-- ── END RIGHT COLUMN ── -->
+
+      </div>
+      <!-- end about-grid -->
+
+      <!-- EDUCATION TIMELINE -->
+      <div style="margin-top:5rem;">
+        <h2 class="section-title reveal">EDUCATION <span>TIMELINE</span></h2>
+        <p class="section-subtitle reveal">My academic journey so far.</p>
+
+        <div style="position:relative;margin-top:2rem;">
+          <div style="position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent-blue),var(--accent-cyan),transparent);border-radius:99px;"></div>
+
+          <div class="reveal delay-1" style="display:flex;gap:2rem;margin-bottom:2rem;position:relative;">
+            <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 0 20px rgba(0,212,255,0.4);z-index:1;">🎓</div>
+            <div class="glass-card" style="flex:1;padding:1.5rem;">
+              <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:0.5rem;">
+                <div>
+                  <h3 style="font-family:var(--font-display);font-size:0.9rem;letter-spacing:0.1em;color:var(--text-primary);">BTech in Information Technology</h3>
+                  <p style="font-size:0.85rem;color:var(--accent-cyan);margin-top:0.2rem;">MIT Academy of Engineering, Pune</p>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);border:1px solid var(--glass-border);padding:0.25rem 0.7rem;border-radius:99px;">2025 – 2029</span>
+              </div>
+              <p style="font-size:0.88rem;color:var(--text-secondary);margin-top:0.8rem;line-height:1.6;">Pursuing a four-year undergraduate degree in Information Technology with focus on programming, databases, and software development.</p>
+            </div>
+          </div>
+
+          <div class="reveal delay-2" style="display:flex;gap:2rem;margin-bottom:2rem;position:relative;">
+            <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 0 20px rgba(0,212,255,0.4);z-index:1;">🏫</div>
+            <div class="glass-card" style="flex:1;padding:1.5rem;">
+              <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:0.5rem;">
+                <div>
+                  <h3 style="font-family:var(--font-display);font-size:0.9rem;letter-spacing:0.1em;color:var(--text-primary);">Higher Secondary (HSC) — Science</h3>
+                  <p style="font-size:0.85rem;color:var(--accent-cyan);margin-top:0.2rem;">Maharashtra State Board</p>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);border:1px solid var(--glass-border);padding:0.25rem 0.7rem;border-radius:99px;">2022 – 2024</span>
+              </div>
+              <p style="font-size:0.88rem;color:var(--text-secondary);margin-top:0.8rem;line-height:1.6;">Completed higher secondary education with Physics, Chemistry, and Mathematics as core subjects.</p>
+            </div>
+          </div>
+
+          <div class="reveal delay-3" style="display:flex;gap:2rem;position:relative;">
+            <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 0 20px rgba(0,212,255,0.4);z-index:1;">📚</div>
+            <div class="glass-card" style="flex:1;padding:1.5rem;">
+              <div style="display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:0.5rem;">
+                <div>
+                  <h3 style="font-family:var(--font-display);font-size:0.9rem;letter-spacing:0.1em;color:var(--text-primary);">Secondary School (SSC)</h3>
+                  <p style="font-size:0.85rem;color:var(--accent-cyan);margin-top:0.2rem;">Maharashtra State Board</p>
+                </div>
+                <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);border:1px solid var(--glass-border);padding:0.25rem 0.7rem;border-radius:99px;">Completed 2022</span>
+              </div>
+              <p style="font-size:0.88rem;color:var(--text-secondary);margin-top:0.8rem;line-height:1.6;">Completed secondary education with strong academic foundation in Science and Mathematics.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- INTERESTS -->
+      <div style="margin-top:5rem;">
+        <h2 class="section-title reveal">INTERESTS &amp; <span>HOBBIES</span></h2>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;">
+          <div class="glass-card reveal delay-1" style="padding:1rem 1.5rem;display:flex;align-items:center;gap:0.8rem;">
+            <span style="font-size:1.5rem;">✍️</span>
+            <span style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.1em;color:var(--text-primary);">CREATIVE WRITING</span>
+          </div>
+          <div class="glass-card reveal delay-2" style="padding:1rem 1.5rem;display:flex;align-items:center;gap:0.8rem;">
+            <span style="font-size:1.5rem;">🎨</span>
+            <span style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.1em;color:var(--text-primary);">PHOTOSHOP / UI UX</span>
+          </div>
+          <div class="glass-card reveal delay-3" style="padding:1rem 1.5rem;display:flex;align-items:center;gap:0.8rem;">
+            <span style="font-size:1.5rem;">🐍</span>
+            <span style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.1em;color:var(--text-primary);">PYTHON</span>
+          </div>
+          <div class="glass-card reveal delay-4" style="padding:1rem 1.5rem;display:flex;align-items:center;gap:0.8rem;">
+            <span style="font-size:1.5rem;">📱</span>
+            <span style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.1em;color:var(--text-primary);">ANDROID DEV</span>
+          </div>
+          <div class="glass-card reveal delay-5" style="padding:1rem 1.5rem;display:flex;align-items:center;gap:0.8rem;">
+            <span style="font-size:1.5rem;">🤖</span>
+            <span style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.1em;color:var(--text-primary);">AI AGENTS</span>
+          </div>
+          <div class="glass-card reveal delay-6" style="padding:1rem 1.5rem;display:flex;align-items:center;gap:0.8rem;">
+            <span style="font-size:1.5rem;">📊</span>
+            <span style="font-family:var(--font-display);font-size:0.75rem;letter-spacing:0.1em;color:var(--text-primary);">DSA BASICS</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Designed &amp; Built by <span>Omkar Mahesh Deshmukh</span> &nbsp;·&nbsp; BTech IT &nbsp;·&nbsp; MITAOE &nbsp;·&nbsp; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

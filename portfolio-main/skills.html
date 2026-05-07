@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills | Omkar Deshmukh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="loading-screen">
+    <div class="loader-logo">OD</div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+    <div class="loader-text">LOADING SKILLS...</div>
+  </div>
+
+  <div id="progress-bar"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">OD.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="skills.html" class="active">SKILLS</a></li>
+      <li><a href="projects.html">PROJECTS</a></li>
+      <li><a href="achievements.html">AWARDS</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span id="theme-icon">🌙</span>
+    </button>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="skills.html" class="active">SKILLS</a>
+    <a href="projects.html">PROJECTS</a>
+    <a href="achievements.html">AWARDS & ACHIEVEMENTS</a>
+    <a href="contact.html">CONTACT</a>
+  </div>
+
+  <main>
+    <div class="section">
+
+      <div class="reveal" style="margin-bottom:3rem;">
+        <h1 class="section-title">MY <span>SKILLS</span></h1>
+        <p class="section-subtitle">Technologies and tools I work with.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="glass-card skill-card reveal delay-1">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-name">AGENTIC AI & LLMS</div>
+          <div class="skill-level">// ADVANCED — ORCHESTRATION</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:90%;"></div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:1rem;line-height:1.6;">
+            Developing multi-agent systems using AutoGen and LangGraph, focusing on LLM factory patterns and swarm intelligence.
+          </p>
+          <div class="project-tags" style="margin-top:1rem;">
+            <span class="project-tag">AutoGen</span>
+            <span class="project-tag">LangGraph</span>
+            <span class="project-tag">Prompt Eng.</span>
+            <span class="project-tag">OpenRouter</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card reveal delay-2">
+          <div class="skill-icon">📱</div>
+          <div class="skill-name">ANDROID STUDIO</div>
+          <div class="skill-level">// INTERMEDIATE — NATIVE APPS</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:80%;"></div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:1rem;line-height:1.6;">
+            Building native Android applications with Kotlin and Java, specializing in hardware-software handshakes and system listeners.
+          </p>
+          <div class="project-tags" style="margin-top:1rem;">
+            <span class="project-tag">Kotlin</span>
+            <span class="project-tag">Java</span>
+            <span class="project-tag">APIs</span>
+            <span class="project-tag">Firebase</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card reveal delay-3">
+          <div class="skill-icon">💻</div>
+          <div class="skill-name">FULL STACK WEB</div>
+          <div class="skill-level">// INTERMEDIATE — MODERN STACK</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:75%;"></div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:1rem;line-height:1.6;">
+            Designing responsive, user-friendly interfaces with seamless backend integrations and interactive UI components.
+          </p>
+          <div class="project-tags" style="margin-top:1rem;">
+            <span class="project-tag">HTML/CSS</span>
+            <span class="project-tag">JS/WebGL</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card reveal delay-4">
+          <div class="skill-icon">🎨</div>
+          <div class="skill-name">DESIGN & 3D</div>
+          <div class="skill-level">// CREATIVE SUITE</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:85%;"></div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:1rem;line-height:1.6;">
+            Expertise in Adobe Creative Suite for visual storytelling and Blender for high-quality 3D visuals and animations.
+          </p>
+          <div class="project-tags" style="margin-top:1rem;">
+            <span class="project-tag">Photoshop</span>
+            <span class="project-tag">Blender</span>
+            <span class="project-tag">Premiere Pro</span>
+            <span class="project-tag">UI/UX</span>
+          </div>
+        </div>
+
+        <div class="glass-card skill-card reveal delay-5">
+          <div class="skill-icon">📄</div>
+          <div class="skill-name">LATEX FORMATTING</div>
+          <div class="skill-level">// PROFESSIONAL DOCS</div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar" style="width:95%;"></div>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:1rem;line-height:1.6;">
+            Advanced document preparation for academic reports, resumes, and formal technical documentation with professional precision.
+          </p>
+          <div class="project-tags" style="margin-top:1rem;">
+            <span class="project-tag">Academic Papers</span>
+            <span class="project-tag">Resumes</span>
+            <span class="project-tag">Formatting</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="skills-other reveal" style="margin-top:4rem;">
+        <div class="glass-card" style="padding:2rem;">
+          <h3 style="font-family:var(--font-display);font-size:0.85rem;letter-spacing:0.15em;color:var(--accent-neon);margin-bottom:1.5rem;">// TOOLS & ENVIRONMENT</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Oracle DB</span>
+            <span class="skill-tag">Jupyter Notebook</span>
+            <span class="skill-tag">Linux CLI</span>
+            <span class="skill-tag">MS Office</span>
+            <span class="skill-tag">Google Colab</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-other reveal" style="margin-top:1.5rem;">
+        <div class="glass-card" style="padding:2rem;">
+          <h3 style="font-family:var(--font-display);font-size:0.85rem;letter-spacing:0.15em;color:var(--accent-neon);margin-bottom:1.5rem;">// SOFT SKILLS</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Team Collaboration</span>
+            <span class="skill-tag">Quick Learning</span>
+            <span class="skill-tag">Time Management</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Analytical Thinking</span>
+            <span class="skill-tag">Attention to Detail</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:5rem;">
+        <h2 class="section-title reveal">MY <span>JOURNEY</span></h2>
+        <p class="section-subtitle reveal">The evolution of a problem solver.</p>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-year">2006 — 2019</span>
+              <h3>Creative Foundations</h3>
+              <p>Vivid Imagination, Creative Pursuit, Interests in Story writing, and Problem Solving.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-year">2019</span>
+              <h3>The Digital Entry</h3>
+              <p>Got my first own Android phone, sparking an interest in mobile technology.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-year">2019 — 2021</span>
+              <h3>Visual Exploration</h3>
+              <p>Graphic Designing, Video Editing, Content Creation, and Animation basics.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-year">2021</span>
+              <h3>Technical Shift</h3>
+              <p>Got my first PC, enabling complex software exploration and 3D modeling.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-year">2021 — 2022</span>
+              <h3>Systems & 3D</h3>
+              <p>Basic Python Projects, Understanding Systems, Photoshop works, Blender, and 3D visuals.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card accent-timeline">
+              <span class="timeline-year">DEC 2022</span>
+              <h3>New Era of AI</h3>
+              <p>The arrival of ChatGPT; pivoted focus toward Large Language Models and AI potential.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-year">2022 — 2025</span>
+              <h3>Development & LLMs</h3>
+              <p>Android Development, Prompting, Generative AI, and LLM models.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-year">2025</span>
+              <h3>Higher Education</h3>
+              <p>Enrolled in B.Tech IT at MIT Academy of Engineering (MITAOE), Alandi.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content glass-card">
+              <span class="timeline-year">2025 — TODAY</span>
+              <h3>Advanced Engineering</h3>
+              <p>Full Stack Web Development, Agentic AI workflows, and high-quality media creation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="text-align:center;margin-top:4rem;">
+        <a href="projects.html" class="btn btn-primary" style="margin-right:1rem;">🚀 SEE PROJECTS</a>
+        <a href="achievements.html" class="btn btn-outline">🏆 VIEW AWARDS</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Designed & Built by <span>Omkar Mahesh Deshmukh</span> &nbsp;·&nbsp; BTech IT &nbsp;·&nbsp; MITAOE &nbsp;·&nbsp; 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
