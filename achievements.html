@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Awards & Achievements | Omkar Deshmukh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    .section-subtitle { margin-top: 0.5rem; color: var(--text-secondary); }
+    .section-subtitle-accent {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+    }
+
+    .awards-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .award-card {
+      background: rgba(10, 24, 52, 0.55);
+      border: 1px solid rgba(0,212,255,0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+    }
+    body.light-mode .award-card {
+      background: rgba(255,255,255,0.75);
+      border-color: rgba(0,112,204,0.2);
+      box-shadow: 0 4px 20px rgba(0,80,180,0.07);
+    }
+    .award-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,212,255,0.2); }
+
+    .award-badge { height: 10px; background: linear-gradient(90deg, #2ea1ff, #00d4ff, #6ee7b7); }
+
+    .award-content { padding: 1.6rem; display: flex; flex-direction: column; flex: 1; }
+
+    .award-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .award-title span { color: var(--accent-neon); }
+    body.light-mode .award-title { color: #0a1628; }
+    body.light-mode .award-title span { color: #0055cc; }
+
+    .award-meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem; letter-spacing: 0.08em;
+      color: var(--accent-cyan);
+      border-left: 2px solid var(--accent-neon);
+      padding-left: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    body.light-mode .award-meta { color: #006acc; border-color: #0070cc; }
+
+    .award-desc { color: var(--text-secondary); line-height: 1.65; font-size: 0.9rem; flex: 1; margin-bottom: 1rem; }
+    body.light-mode .award-desc { color: #2a4a7a; }
+
+    .award-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: auto; }
+
+    .award-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,212,255,0.3);
+      background: rgba(0,212,255,0.08);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.76rem; letter-spacing: 0.05em;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+      min-height: 44px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .award-btn:hover, .award-btn:active {
+      background: rgba(0,212,255,0.18);
+      border-color: var(--accent-neon);
+      color: var(--accent-neon);
+      transform: translateY(-1px);
+    }
+
+    /* ---- MODAL REPAIRS ---- */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 99999;
+      padding: 1.5rem;
+    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
+
+    .modal-container {
+      width: min(900px, 100%);
+      max-height: 85vh;
+      background: #050c1c;
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid rgba(0,212,255,0.15);
+      background: rgba(10, 24, 52, 0.8);
+    }
+
+    .modal-close {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(255, 50, 50, 0.1);
+      border: 1px solid rgba(255, 50, 50, 0.2);
+      color: #ff4d4d;
+      font-size: 1.4rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: rgba(255, 50, 50, 0.2); transform: scale(1.05); }
+
+    .modal-body { padding: 1.5rem; overflow-y: auto; flex: 1; }
+
+    /* ---- GALLERY SYSTEM (SCROLL SNAP) ---- */
+    .gallery-wrapper { position: relative; width: 100%; }
+
+    .gallery-strip {
+      display: flex; gap: 1.2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .gallery-strip::-webkit-scrollbar { display: none; }
+
+    .gallery-strip img {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 600px;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+
+    .gallery-nav { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-top: 1.5rem; }
+
+    .gallery-nav-btn {
+      width: 50px; height: 50px; border-radius: 50%;
+      border: 2px solid var(--accent-neon);
+      background: rgba(0, 212, 255, 0.1);
+      color: var(--accent-neon);
+      font-size: 1.4rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: 0.3s;
+      min-width: 50px;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .gallery-nav-btn:hover, .gallery-nav-btn:active { background: var(--accent-neon); color: #000; box-shadow: 0 0 20px var(--accent-glow); transform: scale(1.1); }
+
+    .gallery-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(0,212,255,0.2); transition: 0.3s; cursor: pointer; }
+    .gallery-dot.active { background: var(--accent-neon); transform: scale(1.4); }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    .gallery-empty {
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    /* MOBILE ADJUSTMENTS */
+    @media (max-width: 768px) {
+      .modal-container { height: 90vh; max-height: 90vh; border-radius: 24px 24px 0 0; position: fixed; bottom: 0; }
+      .gallery-strip img { max-width: 100%; }
+      .awards-showcase { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen"><div class="loader-logo">OD</div></div>
+  <div id="progress-bar"></div>
+  <div class="bg-grid"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">OD.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="skills.html">SKILLS</a></li>
+      <li><a href="projects.html">MY WORKS</a></li>
+      <li><a href="achievements.html" class="active">AWARDS</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()"><span id="theme-icon">🌙</span></button>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">HOME</a>
+    <a href="about.html">ABOUT</a>
+    <a href="achievements.html" class="active">AWARDS</a>
+  </div>
+
+  <main>
+    <section class="section">
+      <div class="reveal">
+        <h1 class="section-title">AWARDS & <span>ACHIEVEMENTS</span></h1>
+        <p class="section-subtitle">A professional chronicle of hackathons and academic milestones.</p>
+      </div>
+
+      <div class="awards-showcase">
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🥇 1st Prize · <span>DATATHON</span></div>
+            <div class="award-meta">ANVAYA · Adaptive AI</div>
+            <p class="award-desc">Winner of the intercollege Datathon for accessibility-focused AI innovation.</p>
+            <div class="award-actions">
+              <button class="award-btn" onclick="openVideoModal('https://www.youtube.com/embed/lVxcvGfNdZk')">🎬 Watch Pitch</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🏆 1st Runner Up · <span>GDSC NIRMAAN</span></div>
+            <div class="award-meta">Hackathon · Project Gallery</div>
+            <p class="award-desc">Awarded 2nd place for an innovative full-stack contribution at GDSC Nirmaan.</p>
+            <div class="award-actions">
+              <button class="award-btn" onclick="openGallery('nirmaan')">🖼️ View Gallery</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🤖 <span>VELORA</span> · Agentic AI</div>
+            <div class="award-meta">Research Showcase · Multi-agent Systems</div>
+            <p class="award-desc">Exploration of agentic AI frameworks and autonomous decision-making systems.</p>
+            <div class="award-actions">
+              <button class="award-btn" onclick="openGallery('velora')">🖼️ View Gallery</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🧠 <span>CLAUDE AI</span> · Experimental Suite</div>
+            <div class="award-meta">Prompt Engineering & AI Orchestration</div>
+            <p class="award-desc">Advanced AI experiments, chain-of-thought systems & multimodal exploration.</p>
+            <div class="award-actions">
+              <button class="award-btn" onclick="openGallery('claude')">🖼️ Explore Gallery</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🌐 <span>AI IN ACTION</span> · Campus 4D</div>
+            <div class="award-meta">Immersive Digital Twin · Temporal AI</div>
+            <p class="award-desc">Interactive 4D campus visualization with smart navigation & room booking engine.</p>
+            <div class="award-actions">
+              <a href="https://campus4-d.vercel.app" target="_blank" rel="noopener noreferrer" class="award-btn">🚀 Launch Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">📄 <span>INNOVENTURE</span> · AutobizAI</div>
+            <div class="award-meta">SME Management Platform</div>
+            <p class="award-desc">AI-driven enterprise solution for SMEs, intelligent workflow automation & predictive insights.</p>
+            <div class="award-actions">
+              <a href="assets/awards/innoventure.pdf" target="_blank" class="award-btn">📑 View Report</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🐍 <span>PYTHON</span> · Core & Applied</div>
+            <div class="award-meta">Backend · Data · Automations</div>
+            <p class="award-desc">Python libraries, ML prototypes, automation scripts & database integrations.</p>
+            <div class="award-actions">
+              <button class="award-btn" onclick="openGallery('python')">📸 Showcase</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🔐 <span>THE CIPHER IT</span> · Security & Code</div>
+            <div class="award-meta">Cryptography & Cyber Challenges</div>
+            <p class="award-desc">Innovative cipher implementations, security demos & IT problem solving.</p>
+            <div class="award-actions">
+              <button class="award-btn" onclick="openGallery('cipher')">🖼️ View Images</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🎓 <span>Fergusson College</span></div>
+            <div class="award-meta">Guest Lecture · Maths</div>
+            <p class="award-desc">Delivered a session on "Intuition of Calculus" to high school students.</p>
+            <div class="award-actions">
+              <button class="award-btn" onclick="openGallery('fc')">📷 View Photos</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="award-card reveal">
+          <div class="award-badge"></div>
+          <div class="award-content">
+            <div class="award-title">🏅 <span>SSC Academic Excellence</span></div>
+            <div class="award-meta">1st in School (96.6%)</div>
+            <p class="award-desc">Recognized for top academic standing at Shivraj Vidya Mandir.</p>
+            <div class="award-actions">
+              <button class="award-btn" onclick="openGallery('ssc')">🏆 View Moments</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="reveal" style="margin-top: 3rem; text-align: center;">
+        <p class="section-subtitle-accent">✦ every click opens an immersive gallery or video — digital archive of milestones ✦</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="galleryModal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 id="modalTitle" style="color: var(--accent-neon); font-family: var(--font-display); font-size: 0.9rem;">GALLERY</h3>
+        <button class="modal-close" onclick="closeModal()">&#x2715;</button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const gallerySets = {
+      nirmaan: { title: 'GDSC Nirmaan', images: ['assets/awards/nirmaan (1).jpg','assets/awards/nirmaan (2).jpg','assets/awards/nirmaan (3).jpg','assets/awards/nirmaan (4).jpg','assets/awards/nirmaan (5).jpg'] },
+      velora: { title: 'Velora · Agentic AI', images: ['assets/awards/velora (1).jpg','assets/awards/velora (2).jpg','assets/awards/velora (3).jpg'] },
+      claude: { title: 'Claude AI · Experimental Suite', images: ['assets/awards/Claude(1).jpg','assets/awards/Claude(2).jpg','assets/awards/Claude(3).jpg','assets/awards/Claude(4).jpg'] },
+      python: { title: 'Python · Core & Applied', images: ['assets/awards/python(1).jpg','assets/awards/python(2).jpg'] },
+      cipher: { title: 'The Cipher IT · Security & Code', images: ['assets/awards/it1.jpg','assets/awards/it2.jpg'] },
+      fc: { title: 'Fergusson College Guest Lecture', images: ['assets/awards/fc (1).jpg','assets/awards/fc (2).jpg','assets/awards/fc (3).jpg'] },
+      ssc: { title: 'SSC Academic Honour', images: ['assets/awards/ssc (1).jpg','assets/awards/ssc (2).jpg','assets/awards/ssc (3).jpg'] }
+    };
+
+    const modal = document.getElementById('galleryModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+
+    function openGallery(key) {
+      const set = gallerySets[key];
+      if(!set) return;
+      
+      modalTitle.textContent = set.title;
+      modalBody.innerHTML = `
+        <div class="gallery-wrapper">
+          <div class="gallery-strip" id="activeStrip">
+            ${set.images.map(img => `<img src="${img}" alt="award" loading="lazy" onerror="this.style.opacity='0.5'; this.style.border='1px solid red';">`).join('')}
+          </div>
+          <div class="gallery-nav">
+            <button class="gallery-nav-btn" id="galleryPrev" onclick="moveGallery(-1)">&#8592;</button>
+            <div id="galleryDots" style="display:flex; gap:8px;">
+               ${set.images.map((_, i) => `<div class="gallery-dot ${i===0?'active':''}" onclick="goToImage(${i})"></div>`).join('')}
+            </div>
+            <button class="gallery-nav-btn" id="galleryNext" onclick="moveGallery(1)">&#8594;</button>
+          </div>
+        </div>
+      `;
+      
+      // Add scroll listener for dots
+      const strip = document.getElementById('activeStrip');
+      strip.addEventListener('scroll', updateDots);
+      
+      // Add keyboard navigation
+      galleryKeyListener = (e) => {
+        if(e.key === 'ArrowLeft') moveGallery(-1);
+        if(e.key === 'ArrowRight') moveGallery(1);
+      };
+      document.addEventListener('keydown', galleryKeyListener);
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    let galleryKeyListener = null;
+
+    function goToImage(index) {
+      const strip = document.getElementById('activeStrip');
+      const images = strip.querySelectorAll('img');
+      if(!images.length) return;
+      const imageWidth = images[0].offsetWidth + 12;
+      strip.scrollTo({ left: index * imageWidth, behavior: 'smooth' });
+      updateDots();
+    }
+
+    function moveGallery(dir) {
+      const strip = document.getElementById('activeStrip');
+      const images = strip.querySelectorAll('img');
+      if(!images.length) return;
+      
+      // Calculate current image index
+      const imageWidth = images[0].offsetWidth + 12; // account for gap
+      let currentIndex = Math.round(strip.scrollLeft / imageWidth);
+      
+      // Calculate next index
+      let nextIndex = currentIndex + dir;
+      nextIndex = Math.max(0, Math.min(nextIndex, images.length - 1));
+      
+      // Scroll to next image
+      strip.scrollTo({
+        left: nextIndex * imageWidth,
+        behavior: 'smooth'
+      });
+      
+      updateDots();
+    }
+
+    function updateDots() {
+      const strip = document.getElementById('activeStrip');
+      const dots = document.querySelectorAll('.gallery-dot');
+      const index = Math.round(strip.scrollLeft / strip.clientWidth);
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
+
+    function openVideoModal(url) {
+      modalTitle.textContent = 'Project Presentation';
+      modalBody.innerHTML = `
+        <div class="video-wrapper">
+          <iframe src="${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>`;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      modalBody.innerHTML = '';
+      
+      // Remove gallery keyboard navigation
+      if(galleryKeyListener) {
+        document.removeEventListener('keydown', galleryKeyListener);
+        galleryKeyListener = null;
+      }
+    }
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) closeModal();
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
