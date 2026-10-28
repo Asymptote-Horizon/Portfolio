@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,14 @@
       pointer-events: none;
     }
     .hero > * { position: relative; z-index: 1; }
+
+    /* Keep footer text readable on mobile and desktop */
+    footer p {
+      line-height: 1.8;
+      padding: 0 1rem;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
   </style>
 </head>
 <body>
@@ -96,7 +105,7 @@
       </h1>
 
       <!-- Title -->
-      <p class="hero-title">Second Year BTech Student&nbsp;&nbsp;|&nbsp;&nbsp;Aspiring Developer</p>
+      <p class="hero-title">Second Year BTech Student<br />Aspiring Developer</p>
       <p class="hero-tagline">// Building tomorrow's tech with creativity and code.</p>
 
       <!-- 3D Floating PORTFOLIO text -->
@@ -131,7 +140,7 @@
           <span class="stat-label">AWARDS & ACHIEVEMENTS</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number" data-target="1" data-suffix="st">1st</span>
+          <span class="stat-number" data-target="2" data-suffix="nd">2nd</span>
           <span class="stat-label">YEAR</span>
         </div>
       </div>
@@ -172,7 +181,7 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>Designed & Built by <span>Omkar Mahesh Deshmukh</span> &nbsp;·&nbsp; BTech IT &nbsp;·&nbsp; MITAOE &nbsp;·&nbsp; 2026</p>
+    <p>Designed &amp; Built by <span>Omkar Mahesh Deshmukh</span> &nbsp;·&nbsp; BTech IT &nbsp;·&nbsp; MITAOE &nbsp;·&nbsp; 2026</p>
   </footer>
 
   <!-- ===== SCRIPTS ===== -->
